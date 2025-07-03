@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PrivIdentity - Web3 FHE Mock</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 60px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #111;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    input[type=number] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 25px;
+      background: #1a1a1a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #333;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 1.2em;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.95em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 PrivIdentity</h2>
+    <p>Enter your age to verify anonymously (FHE Simulated)</p>
+    <input type="number" id="age" placeholder="Enter your age" />
+    <button onclick="verify()">Verify Age</button>
+    <div id="result"></div>
+  </div>
+
+  <footer>
+    Powered by Melek
+  </footer>
+
+  <script>
+    function verify() {
+      const age = parseInt(document.getElementById('age').value);
+      let message = "";
+      if (isNaN(age)) {
+        message = "⚠️ Please enter a valid age.";
+      } else {
+        // Mock FHE encryption logic
+        const encrypted = "🔒 Encrypted Age Token";
+        if (age >= 18) {
+          message = `✅ Age Verified: You are eligible.\n${encrypted}`;
+        } else {
+          message = `❌ Age Not Verified: You must be 18+.\n${encrypted}`;
+        }
+      }
+      document.getElementById('result').innerText = message;
+    }
+  </script>
+</body>
+</html>
